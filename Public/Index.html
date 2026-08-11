@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌍 عالم الدول</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>🌍 عالم الدول</h1>
+      <p>لعبة سياسة واقتصاد أونلاين</p>
+    </header>
+
+    <!-- الصفحة الرئيسية -->
+    <section id="home" class="card">
+
+      <h2>🎮 ابدأ اللعب</h2>
+
+      <input
+        id="name"
+        type="text"
+        placeholder="اكتب اسمك"
+        maxlength="24"
+      >
+
+      <button onclick="createRoom()">
+        🏠 إنشاء غرفة
+      </button>
+
+      <div class="or">أو</div>
+
+      <input
+        id="roomInput"
+        type="text"
+        placeholder="أدخل رمز الغرفة"
+      >
+
+      <button onclick="joinRoom()" class="secondary">
+        🚪 الانضمام إلى غرفة
+      </button>
+
+      <p id="msg"></p>
+
+    </section>
+
+
+    <!-- غرفة الانتظار -->
+    <section id="lobby" class="card hidden">
+
+      <h2>🎮 غرفة اللعب</h2>
+
+      <div class="room-code">
+        رمز الغرفة:
+        <strong id="roomCode"></strong>
+      </div>
+
+      <p>
+        أرسل هذا الرمز إلى أصدقائك حتى يدخلون معك.
+      </p>
+
+      <h3>👥 اللاعبين</h3>
+
+      <div id="players"></div>
+
+      <div id="countryBox"></div>
+
+      <button
+        id="startBtn"
+        onclick="startGame()"
+        class="hidden"
+      >
+        🚀 بدء اللعبة
+      </button>
+
+    </section>
+
+
+    <!-- اللعبة -->
+    <section id="game" class="hidden">
+
+      <div class="card top">
+
+        <div>
+          الجولة:
+          <strong id="round">1</strong>/10
+        </div>
+
+        <div id="myCountry"></div>
+
+        <div>
+          الغرفة:
+          <strong id="gameCode"></strong>
+        </div>
+
+      </div>
+
+
+      <div class="game-grid">
+
+        <!-- معلومات دولتي -->
+        <div class="card">
+
+          <h2>📊 دولتي</h2>
+
+          <div id="stats" class="stats"></div>
+
+          <h2>🎯 قرار الجولة</h2>
+
+          <div class="actions">
+
+            <button onclick="action('economy')">
+              🏭 تطوير الاقتصاد
+              <small>3 💰 ← +2 اقتصاد</small>
+            </button>
+
+            <button onclick="action('military')">
+              🪖 تطوير الجيش
+              <small>3 💰 ← +2 جيش</small>
+            </button>
+
+            <button onclick="action('resources')">
+              🛢️ استخراج الموارد
+              <small>1 💰 ← +3 موارد</small>
+            </button>
+
+            <button onclick="action('stability')">
+              ❤️ تحسين الاستقرار
+              <small>2 💰 ← +1 استقرار</small>
+            </button>
+
+          </div>
+
+          <p id="turnMsg"></p>
+
+        </div>
+
+
+        <!-- اللاعبين -->
+        <div class="card">
+
+          <h2>🌐 الدول واللاعبون</h2>
+
+          <div id="gamePlayers"></div>
+
+          <h3>📜 اللعبة</h3>
+
+          <p>
+            طوّر اقتصادك وجيشك ومواردك،
+            وتعاون مع اللاعبين الآخرين.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <script src="client.js"></script>
+
+</body>
+                            </html>
